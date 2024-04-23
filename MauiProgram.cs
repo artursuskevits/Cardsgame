@@ -11,9 +11,9 @@ public static class MauiProgram
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+                fonts.AddFont("Antonio-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("Antonio-Bold.ttf", "OpenSansSemibold");
+            });
 
 #if DEBUG
 		builder.Logging.AddDebug();

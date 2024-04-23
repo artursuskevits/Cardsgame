@@ -45,19 +45,19 @@ namespace Cardsgame2
 
                     var showButton = new Button
                     {
-                        Text = "Show Translation",
+                        Text = "Näita tõlget",
                         HorizontalOptions = LayoutOptions.CenterAndExpand
                     };
                     var addButton = new Button
                     {
-                        Text = "Add Word",
+                        Text = "Lisa sõna",
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         BackgroundColor = Color.FromRgb(0, 128, 0),
                         TextColor = Color.FromRgb(255, 255, 255)
                     };
                     var deleteButton = new Button
                     {
-                        Text = "Delete Word",
+                        Text = "Kustta Šõna",
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         BackgroundColor = Color.FromRgb(255, 0, 0),
                         TextColor = Color.FromRgb(255, 255, 255)
@@ -73,7 +73,7 @@ namespace Cardsgame2
                     showButton.Clicked += (sender, e) =>
                     {
                         translationLabel.IsVisible = !translationLabel.IsVisible;
-                        showButton.Text = translationLabel.IsVisible ? "Hide Translation" : "Show Translation";
+                        showButton.Text = translationLabel.IsVisible ? "Peida Translation" : "Näita tõlget";
                     };
                     addButton.Clicked += async (sender, e) => await AddWord();
                     deleteButton.Clicked += async (sender, e) => await DeleteWord();
@@ -174,8 +174,8 @@ namespace Cardsgame2
         {
             try
             {
-                string rusword = await DisplayPromptAsync("Add Word", "Enter the Russian word:");
-                string engword = await DisplayPromptAsync("Add Word", "Enter the translation in English:");
+                string rusword = await DisplayPromptAsync("Lisa sõna", "Sisestage vene sõna ");
+                string engword = await DisplayPromptAsync("Lisa sõna", "Sisestage ingliskeelne tõlge ");
 
                 words.Add(new PageClass(rusword, engword));
                 await WriteWordsToFile(words, "Words.txt");
@@ -190,7 +190,7 @@ namespace Cardsgame2
         {
             try
             {
-                string rusword = await DisplayPromptAsync("Delete Word", "Enter the Russian word to delete:");
+                string rusword = await DisplayPromptAsync("Kustuta Word", "Sisestage kustutatav venekeelne sõna");
                 var wordToRemove = words.FirstOrDefault(w => w.Word == rusword);
                 if (wordToRemove != null)
                 {
